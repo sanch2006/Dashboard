@@ -1,0 +1,86 @@
+/* src/components/TableComponents.css */
+/* .chart-card styles are inherited for the table containers */
+
+.table-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 15px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling for small screens */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Removes spaces between borders */
+  font-size: 14px;
+  color: #333;
+}
+
+table thead th {
+  text-align: left;
+  padding: 12px 15px;
+  background-color: #f8f8f8; /* Light background for header */
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+  color: #666;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+table tbody tr:last-child {
+  border-bottom: none; /* No border for the last row */
+}
+
+table tbody td {
+  padding: 12px 15px;
+  vertical-align: middle;
+}
+
+table tbody tr:hover {
+  background-color: #fdfdfd; /* Subtle hover effect */
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  display: inline-block; /* Allows padding and margin */
+  min-width: 70px; /* Ensure consistent width for badges */
+  text-align: center;
+}
+
+.status-approved {
+  background-color: #2ecc71; /* Green */
+}
+
+.status-pending {
+  background-color: #f1c40f; /* Yellow */
+  color: #333; /* Darker text for readability */
+}
+
+.status-rejected {
+  background-color: #e74c3c; /* Red */
+}
+
+.status-on-hold {
+  background-color: #9b59b6; /* Purple */
+}
+
+.table-placeholder {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    padding: 50px;
+}

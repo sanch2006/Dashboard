@@ -1,0 +1,58 @@
+/* src/components/TotalIncomeCard.css */
+/* .chart-card styles are inherited */
+
+/* If you need to override the card-title specifically for total-income-card: */
+/* .total-income-card .card-title {
+    font-size: 20px;
+    color: #007bff;
+} */
+
+.income-amount {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin: 15px 0 10px 0;
+}
+
+.income-trend {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.trend-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.trend-icon.positive {
+  color: #2ecc71; /* Green */
+}
+
+.trend-icon.negative {
+  color: #e74c3c; /* Red */
+}
+
+.trend-value {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.trend-value.positive {
+  color: #2ecc71;
+}
+
+.trend-value.negative {
+  color: #e74c3c;
+}
+
+.income-chart-placeholder {
+  width: 100%;
+  height: 80px; /* Fixed height for the sparkline */
+  background-color: #f8f8f8; /* A light background for the chart area */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensure chart stays within bounds */
+}
