@@ -1,0 +1,41 @@
+/* src/components/StatCard.css */
+.stat-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  flex: 1; /* Allows it to grow and shrink in the flex container */
+  min-width: 200px; /* Minimum width before wrapping */
+  text-align: left;
+}
+
+.stat-card .card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stat-card .card-icon {
+  font-size: 28px;
+  color: #3498db; /* Example icon color */
+  margin-right: 10px;
+}
+
+.stat-card .card-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.stat-card .card-description {
+  font-size: 16px;
+  color: #555;
+  margin: 0 0 5px 0;
+}
+
+.stat-card .card-sub-description {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}

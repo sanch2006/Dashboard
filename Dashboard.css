@@ -1,0 +1,103 @@
+/* src/components/Dashboard.css */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A more modern font */
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between header/welcome and the grid */
+}
+
+.welcome-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  grid-column: 1 / -1; /* Make it span full width if placed directly in grid */
+}
+
+.welcome-heading {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.welcome-date {
+  margin: 0;
+  color: #777;
+  font-size: 15px;
+}
+
+/* Main Dashboard Grid for content sections */
+.dashboard-grid {
+  display: grid;
+  /* Default to 4 columns for large screens, adjust automatically */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; /* Space between sections */
+}
+
+/* General Card Styling */
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+/* Specific grid spans (adjust as per your design) */
+.stat-cards-container {
+  grid-column: 1 / -1; /* Spans all columns for the stat cards row */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* We won't make this a 'card' directly, its children will be */
+}
+
+/* For chart and table wrappers to control their span in the grid */
+.chart-card-wrapper,
+.total-income-card-wrapper,
+.table-card-wrapper {
+    grid-column: span 2; /* By default, each takes up half the width (2 columns) */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Might shrink to 2 columns easily */
+    }
+    .chart-card-wrapper,
+    .total-income-card-wrapper,
+    .table-card-wrapper {
+        grid-column: span 1; /* On smaller screens, they take full width in a 2-col setup or half in 1-col */
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr; /* Single column layout on small screens */
+    }
+    .chart-card-wrapper,
+    .total-income-card-wrapper,
+    .table-card-wrapper {
+        grid-column: span 1; /* Ensure they always span 1 on mobile */
+    }
+    .header {
+        flex-direction: column; /* Stack header items vertically */
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .search-bar {
+        width: 100%; /* Full width search bar */
+    }
+    .header-actions {
+        width: 100%;
+        justify-content: space-around; /* Distribute icons */
+    }
+}
