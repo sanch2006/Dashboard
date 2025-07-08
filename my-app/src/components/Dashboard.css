@@ -38,56 +38,73 @@
 /* Main Dashboard Grid for content sections */
 .dashboard-grid {
   display: grid;
-  /* Default to 4 columns for large screens, adjust automatically */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* This is good for 3 columns on larger screens */
+  grid-template-columns: repeat(3, 1fr); /* Or use repeat(auto-fit, minmax(300px, 1fr)); for flexibility */
   gap: 20px; /* Space between sections */
+  margin-top: 20px;
 }
 
-/* General Card Styling */
+/* General Card Styling (keep as is) */
 .card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 20px;
 }
 
-/* Specific grid spans (adjust as per your design) */
+/* Specific grid spans for stat cards (keep as is) */
 .stat-cards-container {
   grid-column: 1 / -1; /* Spans all columns for the stat cards row */
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  /* We won't make this a 'card' directly, its children will be */
 }
 
-/* For chart and table wrappers to control their span in the grid */
+/* src/components/Dashboard.css */
+
+/* ... (your existing code above this) ... */
+
+/* For chart and total income wrappers - no change needed, they already default to span 1 */
 .chart-card-wrapper,
-.total-income-card-wrapper,
-.table-card-wrapper {
-    grid-column: span 2; /* By default, each takes up half the width (2 columns) */
+.total-income-card-wrapper {
+    /* Keep this selector if you have other shared styles, but ensure no grid-column property is set here for default 1-column span */
 }
 
+/* --- IMPORTANT CHANGE HERE --- */
+/* For table wrappers: Make them span 1 column each so they can sit side-by-side */
+.table-card-wrapper {
+    grid-column: span 1; /* Changed from span 2 to span 1 */
+}
+
+/* ... (your responsive adjustments below this, ensure they also have span 1 for tables on smaller screens if you adjust them here too) ... */
 /* Responsive adjustments */
 @media (max-width: 1200px) {
+    /* Adjust grid for tablets/smaller desktops */
     .dashboard-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Might shrink to 2 columns easily */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-fit columns (will likely go to 2 columns here) */
     }
+    /* On these smaller screens, make all chart/table components span full width (1 column in an auto-fit grid) */
     .chart-card-wrapper,
     .total-income-card-wrapper,
     .table-card-wrapper {
-        grid-column: span 1; /* On smaller screens, they take full width in a 2-col setup or half in 1-col */
+        grid-column: span 1; /* Force them to take up 1 column on smaller screens */
     }
 }
 
 @media (max-width: 768px) {
+    /* Adjust grid for mobile */
     .dashboard-grid {
         grid-template-columns: 1fr; /* Single column layout on small screens */
     }
+    /* Ensure all items span 1 column */
     .chart-card-wrapper,
     .total-income-card-wrapper,
     .table-card-wrapper {
-        grid-column: span 1; /* Ensure they always span 1 on mobile */
+        grid-column: span 1;
     }
+    /* ... (rest of your mobile adjustments for header etc.) */
+}
+    
     .header {
         flex-direction: column; /* Stack header items vertically */
         align-items: flex-start;
@@ -100,4 +117,3 @@
         width: 100%;
         justify-content: space-around; /* Distribute icons */
     }
-}
