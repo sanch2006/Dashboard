@@ -1,0 +1,92 @@
+/* src/components/PaymentVouchersTable.css */
+
+.payment-vouchers-table .table-controls {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: flex-end; /* Align search to the right */
+}
+
+.payment-vouchers-table .search-input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 250px; /* Adjust width as needed */
+  font-size: 14px;
+}
+
+.payment-vouchers-table th {
+  cursor: pointer; /* Indicate sortable headers */
+  position: relative;
+  padding-right: 25px; /* Make space for the icon */
+}
+
+.payment-vouchers-table th .sort-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #666; /* Adjust icon color */
+}
+
+/* Base table styles (ensure these are present or add them) */
+.payment-vouchers-table .table-responsive {
+  overflow-x: auto; /* Enables horizontal scrolling on small screens */
+}
+
+.payment-vouchers-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payment-vouchers-table th,
+.payment-vouchers-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.payment-vouchers-table th {
+  background-color: #f8f8f8;
+  font-weight: 600;
+  color: #333;
+}
+
+.payment-vouchers-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.payment-vouchers-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status-badge.status-pending {
+  background-color: #ffe0b2; /* Light orange */
+  color: #e65100; /* Dark orange */
+}
+
+.status-badge.status-approved {
+  background-color: #c8e6c9; /* Light green */
+  color: #388e3c; /* Dark green */
+}
+
+.status-badge.status-rejected {
+  background-color: #ffcdd2; /* Light red */
+  color: #d32f2f; /* Dark red */
+}
+
+.payment-vouchers-table .no-data {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}

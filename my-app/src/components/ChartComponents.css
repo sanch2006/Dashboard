@@ -5,6 +5,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   padding: 20px;
   height: 100%; /* Ensure cards fill grid cell height */
+  
   display: flex;
   flex-direction: column;
 }

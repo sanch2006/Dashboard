@@ -59,12 +59,14 @@ const mockDashboardData = {
         { value: 2000 }, { value: 3000 }, { value: 2500 }, { value: 4000 }, { value: 3500 }, { value: 4500 }
     ]
   },
-  paymentVouchers: [
-    { id: '01', type: 'Request', requestFor: 'FMS for October 2022', approvedOn: '12/10/2022', status: 'Approved' },
-    { id: '02', type: 'Request', requestFor: 'FMS for October 2022', approvedOn: '12/10/2022', status: 'Pending' },
-    { id: '03', type: 'Request', requestFor: 'FMS for October 2022', approvedOn: '12/10/2022', status: 'Approved' },
-    { id: '04', type: 'Request', requestFor: 'FMS for October 2022', approvedOn: '12/10/2022', status: 'Approved' },
-    { id: '05', type: 'Request', requestFor: 'FMS for October 2022', approvedOn: '12/10/2022', status: 'Pending' },
+   paymentVouchers: [
+    // Add an 'amount' property (as a number) to each object
+    { date: '2023-01-01', voucherId: 'PV001', department: 'Finance', amount: 1500.75, status: 'Approved' },
+    { date: '2023-01-05', voucherId: 'PV002', department: 'HR', amount: 200.00, status: 'Pending' },
+    { date: '2023-01-10', voucherId: 'PV003', department: 'IT', amount: 875.50, status: 'Approved' },
+    { date: '2023-01-15', voucherId: 'PV004', department: 'Marketing', amount: 300.00, status: 'Approved' },
+    { date: '2023-01-20', voucherId: 'PV005', department: 'Sales', amount: 1200.00, status: 'Pending' },
+    // You can add more mock data here if you wish
   ],
   budgetHistory: [
     { id: '001', budgetId: '80205001', budgetPeriod: '2023-2024', budgetAmount: '$800,000.00', remainingAmount: '$150,000.00' },

@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: space-between; /* Pushes footer to bottom */
   border-right: 1px solid #f0f2f5; /* Light border */
+  margin-bottom: 110%;
 }
 
 .logo {

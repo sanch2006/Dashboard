@@ -16,7 +16,7 @@ function Header({ userDetails }) { // <- This must match the export name
         <MdHelpOutline className="icon" />
         <div className="user-profile">
           <img
-            src={userDetails?.avatar || 'https://via.placeholder.com/40/CCCCCC/FFFFFF?text=ML'}
+           src={userDetails?.avatar || 'https://source.unsplash.com/random/40x40?person'}
             alt="User Avatar"
             className="user-avatar"
           />

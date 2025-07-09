@@ -68,9 +68,9 @@ function Dashboard() {
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = today.toLocaleDateString('en-US', options);
 
-    return (
+  return (
     <div className="dashboard-container">
-      <Sidebar />
+      <Sidebar/>
       <div className="main-content">
         <Header userDetails={userDetails} />
 
@@ -80,37 +80,34 @@ function Dashboard() {
           <p className="welcome-date">Today is {formattedDate}</p>
         </section>
 
-        <div className="dashboard-grid">
+        
 
-          {/* Stat Cards Container - Keep as is, they typically flow naturally */}
-          <section className="stat-cards-container">
-            {stats && stats.map((stat) => (
-              <StatCard key={stat.id} {...stat} />
-            ))}
-          </section>
+          {/* Stat Cards Container */}
+<section className="stat-cards-container">
+  {stats && stats.map((stat) => (
+    <StatCard key={stat.id} {...stat} />
+  ))}
+</section>
 
-          {/* Charts and Total Income - REMOVE grid-col-2 from these */}
-          <section className="chart-card-wrapper"> {/* Changed from "grid-col-2" */}
-            <StaffApplicationsChart data={staffApplications} />
-          </section>
-          <section className="chart-card-wrapper"> {/* Changed from "grid-col-2" */}
-            <AnnualPayrollSummaryChart data={annualPayrollSummary} />
-          </section>
-          <section className="total-income-card-wrapper"> {/* Changed from "grid-col-2" */}
-            <TotalIncomeCard amount={totalIncome?.amount} change={totalIncome?.change} chartData={totalIncome?.chartData} />
-          </section>
+{/* First Row: 3 Charts */}
+<div className="chart-row chart-row-3">
+  <div className="chart-item"><StaffApplicationsChart data={staffApplications} /></div>
+  <div className="chart-item"><AnnualPayrollSummaryChart data={annualPayrollSummary} /></div>
+  <div className="chart-item"><TotalIncomeCard amount={totalIncome?.amount} change={totalIncome?.change} chartData={totalIncome?.chartData} /></div>
+</div>
 
-          {/* Tables - You can KEEP grid-col-2 on these if you want them to be wider (span 2 columns) */}
-          <section className="table-card-wrapper grid-col-2">
-            <PaymentVouchersTable data={paymentVouchers} />
-          </section>
-          <section className="table-card-wrapper grid-col-2">
-            <BudgetHistoryTable data={budgetHistory} />
-          </section>
+{/* Second Row: 2 Tables */}
+<div className="chart-row chart-row-2">
+  <div className="chart-item"><PaymentVouchersTable data={paymentVouchers} /></div>
+  <div className="chart-item"><BudgetHistoryTable data={budgetHistory} /></div>
+</div>
+
+
+          
 
         </div>
       </div>
-    </div>
-  );
+    
+   ) 
 }
 export default Dashboard;
