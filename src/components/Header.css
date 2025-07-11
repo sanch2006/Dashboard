@@ -1,0 +1,412 @@
+/* src/components/Header.css */
+
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Distribute items horizontally */
+  align-items: center; /* Vertically align items in the center */
+  padding: 15px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px; /* Adds space between the header and the welcome section/grid */
+  flex-wrap: wrap; /* Allows header items to wrap on smaller screens */
+}
+
+/* Left Section: Logo and Menu Icon */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between logo and menu icon */
+}
+
+.header-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.menu-icon {
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.menu-icon:hover {
+  color: #3498db; /* Example hover color */
+}
+
+/* Center Section: Search Bar */
+.header-center {
+  flex-grow: 1; /* Allows the search bar to take available horizontal space */
+  max-width: 400px; /* Limits the search bar's maximum width */
+  margin: 0 20px; /* Adds horizontal margin around the search bar */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  padding: 8px 15px;
+}
+
+.search-icon {
+  color: #888;
+  margin-right: 10px;
+}
+
+.search-input {
+  border: none;
+  background: transparent;
+  outline: none; /* Removes the focus outline */
+  width: 100%; /* Makes the input fill its container */
+  font-size: 15px;
+  color: #333;
+}
+
+/* NEW SECTION: Date, Monthly, Filter, Export */
+.header-filters-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between these new elements */
+  margin: 0 20px; /* Add some margin to separate from search and user profile */
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+  flex-shrink: 0; /* Prevent this section from shrinking too much */
+}
+
+.header-filters-actions .icon { /* Common style for icons inside these elements */
+  font-size: 16px;
+  color: #555;
+}
+
+.date-range-picker,
+.monthly-dropdown {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  gap: 5px; /* Space between icon and text */
+  white-space: nowrap; /* Prevent text from wrapping inside the box */
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.date-range-picker:hover,
+.monthly-dropdown:hover {
+  background-color: #e0e0e0;
+  border-color: #c0c0c0;
+}
+
+.filter-button,
+.export-button {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  gap: 5px; /* Space between icon and text */
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.filter-button:hover,
+.export-button:hover {
+  background-color: #e0e0e0;
+  border-color: #c0c0c0;
+}
+
+/* Right Section: Action Icons and User Profile */
+.header-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between the action icons group and the user profile */
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px; /* Space between individual action icons */
+}
+
+.action-icon {
+  font-size: 22px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.action-icon:hover {
+  color: #3498db; /* Example hover color */
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between avatar, info, and dropdown icon */
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Makes the avatar round */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column; /* Stacks name and role vertically */
+}
+
+.user-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 15px;
+}
+
+.user-role {
+  font-size: 12px;
+  color: #777;
+}
+
+.dropdown-icon {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Responsive Adjustments for Header */
+@media (max-width: 1200px) {
+  .header-filters-actions {
+    margin: 0 10px; /* Adjust margin for slightly smaller screens */
+    gap: 8px; /* Reduce gap */
+  }
+}
+
+@media (max-width: 900px) {
+  .header-container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align stacked items to the left */
+    gap: 15px;
+    padding: 15px;
+  }
+  .header-left {
+    width: 100%; /* Make logo/menu section full width */
+    justify-content: space-between; /* Push logo left, menu right */
+  }
+  .header-center {
+    order: 2; /* Place search after logo/menu */
+    width: 100%;
+    margin: 10px 0;
+  }
+  .header-filters-actions {
+    order: 3; /* Place filters/actions after search */
+    width: 100%;
+    margin: 10px 0;
+    justify-content: space-around; /* Distribute items horizontally */
+    gap: 5px; /* Reduce gap to fit more items */
+  }
+  .header-right {
+    order: 4; /* Place user profile last */
+    width: 100%;
+    justify-content: space-between; /* Distribute actions and profile */
+  }
+}
+
+@media (max-width: 600px) { /* Adjust breakpoint for more aggressive stacking */
+  .header-filters-actions {
+    flex-direction: column; /* Stack filter items vertically */
+    align-items: stretch; /* Stretch to fill width */
+    gap: 10px;
+  }
+  .date-range-picker,
+  .monthly-dropdown,
+  .filter-button,
+  .export-button {
+    width: 100%; /* Make them full width when stacked */
+    justify-content: center; /* Center content within them */
+    padding: 10px 15px; /* Increase padding for better touch targets */
+  }
+  .header-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .header-actions {
+    width: 100%;
+    justify-content: space-around;
+  }
+  .user-profile {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+/* src/components/Header.css */
+
+/* ... (keep your existing Header.css content above this) ... */
+
+/* Style for the custom button that opens the DatePicker */
+.date-range-button {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  gap: 5px; /* Space between icon, text, and arrow */
+  white-space: nowrap; /* Prevent text from wrapping */
+  transition: background-color 0.2s, border-color 0.2s;
+
+  /* Reset default button styles */
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.date-range-button:hover {
+  background-color: #e0e0e0;
+  border-color: #c0c0c0;
+}
+
+/* Important: Hide the default input field that react-datepicker creates */
+.react-datepicker__input-container input {
+  display: none;
+}
+
+/* Custom styling for the react-datepicker calendar popup */
+.react-datepicker-popper {
+  z-index: 1000; /* Ensure the calendar pops over other content */
+}
+
+.react-datepicker {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Match your dashboard font */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.react-datepicker__header {
+  background-color: #f0f2f5; /* Light grey background for header */
+  border-bottom: none;
+  padding-top: 10px;
+  position: relative;
+}
+
+.react-datepicker__current-month {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.react-datepicker__navigation {
+  top: 15px;
+  line-height: 1.7;
+  border: none;
+}
+
+.react-datepicker__navigation--previous { left: 15px; }
+.react-datepicker__navigation--next { right: 15px; }
+
+/* Styles for days */
+.react-datepicker__day-name,
+.react-datepicker__day {
+  width: 2.2rem; /* Size of each day cell */
+  line-height: 2.2rem;
+  margin: 0.166rem;
+  border-radius: 50%; /* Make days round */
+  color: #333;
+}
+
+/* Hover and selection states */
+.react-datepicker__day:hover {
+  background-color: #e0e0e0;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--range-start,
+.react-datepicker__day--range-end {
+  background-color: #3498db; /* Primary blue for selected/range ends */
+  color: white;
+}
+
+.react-datepicker__day--in-range {
+  background-color: #cfe8f7; /* Lighter blue for days within range */
+  color: #333;
+  border-radius: 0; /* Remove border-radius for range days to form a continuous block */
+}
+
+/* Ensure rounded corners for start and end of range */
+.react-datepicker__day--in-range.react-datepicker__day--range-start {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+.react-datepicker__day--in-range.react-datepicker__day--range-end {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #aaddff; /* Highlight for keyboard navigation */
+  color: #333;
+}
+
+.react-datepicker__day--outside-month {
+  color: #ccc; /* Dim days outside the current month */
+}
+
+/* Adjustments for responsive behavior of the calendar popup itself */
+/* React-datepicker is generally responsive, but you can add more rules if needed */
+@media (max-width: 400px) {
+  .react-datepicker {
+    width: 100%; /* Make calendar take full width on very small screens */
+  }
+}
+.profile-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  margin-top: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  z-index: 9999;
+  min-width: 150px;
+  padding: 10px 0;
+}
+
+.profile-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-dropdown li {
+  padding: 10px 20px;
+}
+
+.profile-dropdown li button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.profile-dropdown li button:hover {
+  background-color: #f3f3f3;
+}
